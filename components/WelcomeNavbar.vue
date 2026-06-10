@@ -21,7 +21,7 @@ withDefaults(defineProps<{
 
     <nav class="navbar__nav">
       <NuxtLink to="/" class="navbar__link">Home</NuxtLink>
-      <a href="mailto:support@windowresizer.app" class="navbar__link">Contact us</a>
+      <NuxtLink to="/contact-us" class="navbar__link">Contact us</NuxtLink>
     </nav>
 
     <InstallExtensionButton
