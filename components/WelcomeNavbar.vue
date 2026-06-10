@@ -1,3 +1,11 @@
+<script setup lang="ts">
+withDefaults(defineProps<{
+  showInstallButton?: boolean
+}>(), {
+  showInstallButton: true,
+})
+</script>
+
 <template>
   <header class="navbar">
     <NuxtLink to="/" class="navbar__brand">
@@ -16,7 +24,11 @@
       <a href="mailto:support@windowresizer.app" class="navbar__link">Contact us</a>
     </nav>
 
-    <InstallExtensionButton variant="outline" class="navbar__install" />
+    <InstallExtensionButton
+      v-if="showInstallButton"
+      variant="outline"
+      class="navbar__install"
+    />
   </header>
 </template>
 
@@ -33,7 +45,6 @@
   gap: 10px;
   text-decoration: none;
   color: inherit;
-  line-height: normal;
 }
 
 .navbar__brand:hover {
@@ -60,12 +71,11 @@
 }
 
 .navbar__link {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   color: #1a1a2e;
   text-decoration: none;
   transition: color 0.15s;
-  line-height: normal;
 }
 
 .navbar__link:hover {

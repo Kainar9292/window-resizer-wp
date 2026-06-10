@@ -46,7 +46,7 @@ withDefaults(defineProps<{
   width: 240px;
   height: 48px;
   border-radius: 15px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1;
   text-decoration: none;

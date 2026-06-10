@@ -27,7 +27,7 @@ onMounted(() => {
     <PageBlobs />
 
     <div class="container">
-      <WelcomeNavbar />
+      <WelcomeNavbar :show-install-button="false" />
 
       <main class="welcome-page__main">
         <h1 class="welcome-page__title">
@@ -80,19 +80,24 @@ onMounted(() => {
 
 .welcome-page__title {
   max-width: 800px;
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-size: 1.875rem;
   font-weight: 700;
   text-align: center;
   color: #1a1a2e;
   letter-spacing: -0.02em;
-  line-height: 1.3;
+  line-height: 1.25;
   margin: 0 auto 40px;
+}
+
+@media (min-width: 640px) {
+  .welcome-page__title {
+    font-size: 2.25rem;
+  }
 }
 
 @media (min-width: 768px) {
   .welcome-page__title {
     font-size: 3rem;
-    line-height: 1.25;
   }
 }
 
@@ -122,7 +127,7 @@ onMounted(() => {
   border-radius: 12px;
 }
 
-@media (min-width: 575px) {
+@media (min-width: 640px) {
   .welcome-page__step-text {
     font-size: 1.125rem;
     line-height: 1.75rem;
