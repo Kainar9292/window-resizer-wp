@@ -1,6 +1,6 @@
 <template>
   <header class="navbar">
-    <NuxtLink to="/welcome" class="navbar__brand">
+    <NuxtLink to="/" class="navbar__brand">
       <img
         src="/icon.png"
         alt="Window Resizer"
@@ -12,9 +12,11 @@
     </NuxtLink>
 
     <nav class="navbar__nav">
-      <NuxtLink to="/welcome" class="navbar__link">Home</NuxtLink>
+      <NuxtLink to="/" class="navbar__link">Home</NuxtLink>
       <a href="mailto:support@windowresizer.app" class="navbar__link">Contact us</a>
     </nav>
+
+    <InstallExtensionButton variant="outline" class="navbar__install" />
   </header>
 </template>
 
@@ -48,7 +50,7 @@
   font-weight: 700;
   color: #1a1a2e;
   letter-spacing: -0.01em;
-  margin-right: 64px;
+  margin-right: 100px;
 }
 
 .navbar__nav {
@@ -67,7 +69,15 @@
 }
 
 .navbar__link:hover {
-  color: #1a1a2e;
+  color: var(--blob-green-text);
   text-decoration: none;
+}
+
+.navbar__link.router-link-active {
+  color: var(--blob-green-text);
+}
+
+.navbar__install {
+  margin-left: auto;
 }
 </style>

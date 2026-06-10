@@ -24,8 +24,7 @@ onMounted(() => {
 
 <template>
   <div class="welcome-page">
-    <div class="welcome-page__blob welcome-page__blob--top" />
-    <div class="welcome-page__blob welcome-page__blob--bottom" />
+    <PageBlobs />
 
     <div class="container">
       <WelcomeNavbar />
@@ -39,14 +38,26 @@ onMounted(() => {
           <p class="welcome-page__step-text">
             1. Pin the extension for quick access to the Window Resizer.
           </p>
-          <WelcomeBrowserMockup variant="pin" />
+          <img
+            src="/welcome-pin-guide.png"
+            alt="Pin the Window Resizer extension: open Extensions menu and click the pin icon"
+            class="welcome-page__guide"
+            width="1024"
+            height="664"
+          >
         </section>
 
         <section class="welcome-page__step">
           <p class="welcome-page__step-text">
             2. Simply click on the extension icon to open the resizer.
           </p>
-          <WelcomeBrowserMockup variant="click" />
+          <img
+            src="/welcome-click-guide.png"
+            alt="Click the Window Resizer extension icon in the browser toolbar"
+            class="welcome-page__guide"
+            width="1024"
+            height="664"
+          >
         </section>
       </main>
     </div>
@@ -61,34 +72,10 @@ onMounted(() => {
   overflow: hidden;
 }
 
-.welcome-page__blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  opacity: 0.45;
-}
-
-.welcome-page__blob--top {
-  top: -120px;
-  right: -80px;
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, #c4b5fd 0%, #93c5fd 100%);
-}
-
-.welcome-page__blob--bottom {
-  bottom: -100px;
-  left: -60px;
-  width: 360px;
-  height: 360px;
-  background: linear-gradient(135deg, #a5f3fc 0%, #c4b5fd 100%);
-}
-
 .welcome-page__main {
   position: relative;
   z-index: 1;
-  padding: 54px 0 80px;
+  padding: 52px 0 80px;
 }
 
 .welcome-page__title {
@@ -99,7 +86,7 @@ onMounted(() => {
   color: #1a1a2e;
   letter-spacing: -0.02em;
   line-height: 1.3;
-  margin: 0 auto 56px;
+  margin: 0 auto 40px;
 }
 
 @media (min-width: 768px) {
@@ -110,7 +97,7 @@ onMounted(() => {
 }
 
 .welcome-page__step {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .welcome-page__step:last-child {
@@ -123,7 +110,16 @@ onMounted(() => {
   line-height: 1.625;
   color: rgb(149 156 177);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 40px;
+}
+
+.welcome-page__guide {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
 }
 
 @media (min-width: 575px) {
