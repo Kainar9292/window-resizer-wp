@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   css: ['~/assets/css/main.css'],
   app: {
+    baseURL: '/window-resizer-wp/',
     head: {
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.png' },
