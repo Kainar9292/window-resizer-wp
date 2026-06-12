@@ -102,7 +102,7 @@ onMounted(() => {
 }
 
 .welcome-page__step {
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .welcome-page__step:last-child {
@@ -115,13 +115,13 @@ onMounted(() => {
   line-height: 1.625;
   color: rgb(149 156 177);
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .welcome-page__guide {
   display: block;
   width: 100%;
-  max-width: 620px;
+  max-width: 675px;
   height: auto;
   margin: 0 auto;
   border-radius: 12px;
