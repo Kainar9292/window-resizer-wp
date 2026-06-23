@@ -125,6 +125,10 @@ onMounted(() => {
   height: auto;
   margin: 0 auto;
   border-radius: 12px;
+  border: 1px solid rgba(26, 26, 46, 0.1);
+  box-shadow:
+    0 1px 2px rgba(26, 26, 46, 0.06),
+    0 8px 24px rgba(26, 26, 46, 0.12);
 }
 
 @media (min-width: 640px) {
