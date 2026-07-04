@@ -28,9 +28,15 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Prepare static files
+        run: |
+          touch .output/public/.nojekyll
+          find .output/public -name '.DS_Store' -delete
+
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: .output/public
+          include-hidden-files: true
 
   deploy:
     needs: build
@@ -39,5 +45,23 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 45
+
+      - name: Retry deploy to GitHub Pages
+        if: steps.deployment.outcome == 'failure'
+        id: deployment-retry
+        uses: actions/deploy-pages@v4
+
+      - name: Verify deployment
+        if: steps.deployment.outcome == 'failure' && steps.deployment-retry.outcome == 'failure'
+        run: |
+          echo "GitHub Pages deployment failed after 2 attempts."
+          echo "Re-run the full workflow (all jobs), not deploy only."
+          exit 1
