@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /window-resizer-wp/welcome
+Disallow: /window-resizer-wp/feedback

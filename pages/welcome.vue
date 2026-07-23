@@ -10,6 +10,10 @@ useHead({
       name: 'description',
       content: 'Welcome to Window Resizer — resize and position browser windows with precision.',
     },
+    {
+      name: 'robots',
+      content: 'noindex, nofollow',
+    },
   ],
 })
 
